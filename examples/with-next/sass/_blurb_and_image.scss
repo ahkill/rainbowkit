@@ -1,0 +1,56 @@
+.blurb-and-image {
+  &.col-reverse {
+    display: flex;
+    flex-direction: column-reverse;
+    img {
+      margin: 0 0 40px;
+    }
+  }
+  .blurb-info {
+    h2 {
+      color: $gray800;
+    }
+    p {
+      color: $gray600;
+    }
+    .title-subtitle {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (min-width: $md) {
+  .blurb-and-image {
+    &.col-revers {
+      img {
+        margin: 0 0 40px;
+      }
+    }
+  }
+}
+
+@media (min-width: $lg) {
+  .blurb-and-image {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 80px;
+    &.col-reverse {
+      display: grid;
+    }
+    .blurb-info {
+      text-align: left;
+      display: flex;
+      align-items: center;
+      .title-subtitle {
+        margin: 0;
+        max-width: initial;
+        p {
+          max-width: initial;
+        }
+      }
+    }
+    .platform-image-wrapper {
+      margin-top: 0;
+    }
+  }
+}

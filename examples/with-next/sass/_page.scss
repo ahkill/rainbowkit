@@ -1,0 +1,10 @@
+#page {
+  margin-top: 64px;
+  background-color: $telxGray1;
+}
+
+@media (min-width: $lg) {
+  #page {
+    margin-top: 80px;
+  }
+}

@@ -1,0 +1,657 @@
+.wallet-drawer-button {
+    display: none;
+  
+    button {
+      min-width: 0;
+      padding: 8px 9.75px !important;
+      border-radius: 250px;
+      border-color: $telxGray7;
+  
+      &:hover {
+        background: $gradientVibrantBlue;
+        border-color: $white;
+        svg {
+          * {
+            fill: $white;
+          }
+        }
+      }
+  
+      svg {
+        width: 24px;
+        * {
+          fill: $telxGray7;
+        }
+      }
+    }
+  }
+  
+  #page .page-wrapper {
+    &.wallet-open {
+      grid-template-columns: 1fr 360px;
+  
+      .page-aside {
+        width: 360px;
+      }
+  
+      @media (min-width: $xxxl) {
+        grid-template-columns: 1fr 400px;
+        .page-aside {
+          width: 400px;
+        }
+      }
+  
+      .product-header-upper {
+        grid-template-columns: 1fr;
+      }
+    }
+    &.wallet-closed {
+      grid-template-columns: 1fr;
+  
+      .page-aside {
+        width: 0px;
+        display: none;
+      }
+    }
+  
+    .page-aside {
+      background-color: $telxGray2;
+    }
+  
+    .wallet-drawer {
+      display: none;
+      padding: 12px;
+      overflow-y: auto;
+      height: calc(100vh - $headerHeight);
+  
+      .footnote {
+        font-size: 12px;
+        padding-left: 20px;
+      }
+  
+      .drawer-item {
+        background-color: $white;
+        border-radius: 8px;
+        padding: 24px;
+        margin-bottom: 12px;
+        border: 1px solid $telxGray3;
+  
+        h4 {
+          color: $telxGray7;
+          font-size: 16px;
+          margin: 0;
+        }
+  
+        .buttons {
+          text-align: right;
+  
+          button {
+            margin-left: 12px;
+            padding: 8px 12px;
+            min-width: 0;
+            border-color: $deepOceanBlue;
+            line-height: normal;
+            font-size: 12px;
+            font-weight: bold;
+            height: 100%;
+  
+            &:disabled {
+              border-color: $gray300;
+              color: $gray300;
+              background-color: transparent;
+  
+              a {
+                color: $gray300;
+                &:hover {
+                  cursor: not-allowed;
+                }
+              }
+            }
+  
+            a {
+              padding: 0;
+              font-size: 12px;
+            }
+          }
+        }
+  
+        &.tel-price {
+          display: grid;
+          grid-template-columns: 120px 1fr;
+  
+          .title {
+            display: flex;
+            align-items: center;
+            color: $telxGray7;
+            font-weight: bold;
+            font-size: 16px;
+  
+            svg {
+              height: 24px;
+              width: 24px;
+              margin-right: 4px;
+            }
+          }
+          .price {
+            justify-self: flex-end;
+            color: $telxGray10;
+            font-size: 16px;
+            font-weight: bold;
+  
+            sup {
+              font-size: 12px;
+            }
+          }
+        }
+  
+        &.web3 {
+          padding: 0;
+  
+          &.connected {
+            padding-bottom: 24px;
+            .status {
+              color: $green;
+              font-size: 16px;
+  
+              h4 {
+                color: $green;
+              }
+            }
+          }
+          &.wrong-network {
+            padding-bottom: 24px;
+  
+            .wallet-address {
+              color: $telxGray10;
+              font-weight: bold;
+            }
+          }
+          &.disconnected {
+            .title {
+              .status {
+                color: $gray400;
+                font-size: 16px;
+  
+                h4 {
+                  color: $gray400;
+                }
+              }
+              .network {
+                img {
+                  filter: contrast(0%);
+                }
+              }
+              button {
+                border-color: $gray400;
+  
+                svg {
+                  fill: $gray400;
+                }
+              }
+            }
+            .wallet-address {
+              color: $telxGray3;
+              font-size: 16px;
+              font-weight: bold;
+            }
+          }
+  
+          .title {
+            display: grid;
+            // grid-template-columns: 1fr 75px 32px;
+            grid-template-columns: 1fr 75px;
+            align-items: center;
+            justify-items: flex-end;
+            gap: 12px;
+            margin-bottom: 8px;
+            padding: 24px 24px 0;
+  
+            .status {
+              justify-self: start;
+              align-items: center;
+              display: flex;
+  
+              .tw-icon {
+                padding-top: 4px;
+              }
+  
+              h4 {
+                margin: 0;
+              }
+  
+              &.warning {
+                color: $yellow;
+                h4 {
+                  color: $yellow;
+                }
+              }
+            }
+  
+            .network {
+              padding-top: 8px;
+  
+              img {
+                max-height: 16px;
+              }
+            }
+            button {
+              padding: 7px 8px 4px;
+              min-width: 0;
+              display: block;
+              border-radius: 32px;
+              border-color: $telxGray7;
+              height: 32px;
+              width: 32px;
+  
+              &:hover {
+                background: $gradientVibrantBlue;
+                svg {
+                  fill: $white;
+                }
+                border-color: $white;
+              }
+  
+              &:disabled {
+                background-color: transparent;
+              }
+  
+              svg {
+                fill: $telxGray7;
+              }
+            }
+          }
+  
+          .wallet-address {
+            word-break: break-all;
+            // margin-bottom: 16px;
+            padding: 0 24px;
+  
+            a {
+              display: grid;
+              grid-template-columns: 24px 1fr;
+              column-gap: 4px;
+  
+              &:hover {
+                svg {
+                  * {
+                    fill: $purple;
+                  }
+                }
+                span {
+                  color: $purple;
+                }
+              }
+  
+              svg {
+                max-width: 24px;
+                * {
+                  fill: $telxBlue2;
+                }
+              }
+  
+              span {
+                font-size: 16px;
+                font-weight: bold;
+                color: $telxBlue2;
+                line-height: 1.2;
+              }
+            }
+          }
+  
+          > p {
+            margin-bottom: 24px;
+            margin-top: 12px;
+            text-align: left;
+            font-size: 14px;
+            color: $gray400;
+            padding: 0 24px;
+          }
+  
+          button.connect-wallet {
+            width: 100%;
+            border-radius: 0;
+            border: 0;
+            border-top: 1px solid $telxGray3;
+            background-color: $telxGray1;
+            border-bottom-left-radius: $borderRadiusCard;
+            border-bottom-right-radius: $borderRadiusCard;
+  
+            &:hover {
+              box-shadow: none;
+            }
+          }
+        }
+  
+        .connect-wallet {
+          .connect-btn {
+            padding-left: 1.5rem;
+            padding-bottom: 0.8rem;
+          }
+        }
+  
+        &.rewards {
+          padding: 0;
+  
+          .title {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            padding: 24px 24px 0;
+          }
+          .price {
+            justify-self: flex-end;
+            color: $telxGray10;
+            font-weight: bold;
+            font-size: 16px;
+          }
+  
+          .reward-items {
+            // padding: 24px 0;
+            padding: 24px 24px 0;
+  
+            .reward-item {
+              margin-bottom: 16px;
+              text-align: right;
+  
+              .unclaimed {
+                color: $telxGray10;
+                font-size: 16px;
+                font-weight: bold;
+  
+                .crypto-asset {
+                  display: inline-block;
+                }
+              }
+  
+              .usd-amount {
+                color: $telxGray7;
+                font-size: 12px;
+              }
+            }
+          }
+  
+          .buttons {
+            span.button {
+              width: 100%;
+              border-radius: 0;
+              border: 0;
+              border-bottom: 1px solid $telxGray3;
+              // background-color: $telxGray1;
+  
+              &:hover {
+                background: $gradientVibrantBlue;
+                a {
+                  color: $white;
+                }
+              }
+  
+              &:first-child {
+                border-top: 1px solid $telxGray3;
+              }
+              &:last-child {
+                border-bottom-right-radius: 8px;
+                border-bottom-left-radius: 8px;
+              }
+            }
+          }
+        }
+  
+        &.contracts {
+          padding: 0;
+  
+          > .title {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            padding: 32px 24px 0;
+  
+            h4 {
+              color: $telxGray7;
+            }
+          }
+  
+          .price {
+            justify-self: flex-end;
+            color: $telxGray10;
+            font-size: 16px;
+            font-weight: bold;
+          }
+  
+          p {
+            padding: 16px 24px 32px;
+            line-height: 1.3;
+  
+            &.disclaimer {
+              font-size: 12px;
+              padding-bottom: 24px;
+              padding-top: 0;
+            }
+          }
+  
+          .subtitle {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            padding: 32px 24px 8px;
+  
+            h5 {
+              color: $telxGray7;
+              margin: 0;
+              font-size: 14px;
+            }
+            .price {
+              justify-self: flex-end;
+              color: $telxGray10;
+              font-size: 14px;
+            }
+          }
+          .contract-items {
+            padding: 0 12px 24px;
+  
+            .contract-item {
+              background-color: $telxGray2;
+              // border: solid 1px $telxGray3;
+              padding: 12px;
+              display: grid;
+              grid-template-columns: auto 1fr;
+              column-gap: 8px;
+              align-items: center;
+              border-radius: 8px;
+              margin-bottom: 12px;
+              &:last-of-type {
+                margin-bottom: 0;
+              }
+              // &:last-child {
+              //   border-bottom-left-radius: 8px;
+              //   border-bottom-right-radius: 8px;
+              // }
+  
+              // &:first-child {
+              // border-top: 1px solid $telxGray3;
+              // }
+  
+              &:hover {
+                cursor: pointer;
+                background: $gradientVibrantBlue;
+                .contract-asset {
+                  span {
+                    color: $white !important;
+                  }
+                }
+                .stake-details {
+                  .lpt-amount {
+                    color: $white;
+                  }
+                  .usd-amount {
+                    color: $white;
+                  }
+                }
+              }
+  
+              .pool-details {
+                .contract-asset {
+                  display: flex;
+                  align-items: center;
+  
+                  .crypto-asset {
+                    margin: 0 4px;
+                  }
+  
+                  span {
+                    font-weight: bold;
+                    color: $gray700;
+                  }
+                }
+              }
+              .stake-details {
+                text-align: right;
+                justify-self: flex-end;
+  
+                .brand {
+                  img {
+                    max-height: 16px;
+                    width: auto;
+                  }
+                }
+  
+                .lpt-amount {
+                  color: $telxGray9;
+                  font-size: 14px;
+                  overflow-wrap: anywhere;
+                }
+                .usd-amount {
+                  color: $telxGray9;
+                  font-size: 12px;
+                }
+              }
+            }
+          }
+        }
+        &.notifications {
+          padding: 0;
+          .title {
+            padding: 24px;
+            display: grid;
+            gap: 4px;
+            grid-template-columns: 16px 1fr;
+            align-items: center;
+            .tw-icon {
+              padding-top: 4px;
+              svg {
+                * {
+                  fill: $telxGray7;
+                }
+              }
+            }
+          }
+          .notification-items {
+            .notification-item {
+              border-top: 1px solid $telxGray2;
+              padding: 20px;
+  
+              & > p {
+                font-size: 14px;
+              }
+            }
+  
+            .contract-item {
+              background-color: $telxGray1;
+              border: solid 1px $telxGray3;
+              padding: 12px;
+              display: grid;
+              grid-template-columns: auto 1fr;
+              column-gap: 8px;
+              align-items: center;
+              border-radius: 8px;
+              margin-bottom: 12px;
+  
+              &:last-of-type {
+                margin-bottom: 0;
+              }
+  
+              &:hover {
+                cursor: pointer;
+                background: $gradientVibrantBlue;
+  
+                .contract-asset {
+                  span {
+                    color: $white !important;
+                  }
+                }
+  
+                .stake-details {
+                  .lpt-amount {
+                    color: $white;
+                  }
+  
+                  .usd-amount {
+                    color: $white;
+                  }
+                }
+              }
+  
+              .pool-details {
+                .contract-asset {
+                  display: flex;
+                  align-items: center;
+  
+                  .crypto-asset {
+                    margin: 0 4px;
+                  }
+  
+                  span {
+                    font-weight: bold;
+                    color: $gray700;
+                  }
+                }
+              }
+  
+              .stake-details {
+                text-align: right;
+                justify-self: flex-end;
+  
+                .brand {
+                  img {
+                    max-height: 16px;
+                    width: auto;
+                  }
+                }
+  
+                .lpt-amount {
+                  color: $telxGray9;
+                  font-size: 14px;
+                  overflow-wrap: anywhere;
+                }
+  
+                .usd-amount {
+                  color: $telxGray9;
+                  font-size: 12px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @media (min-width: $lg) {
+    .wallet-drawer-button {
+      display: block;
+    }
+  
+    #page .page-wrapper {
+      display: grid;
+  
+      .page-aside {
+        position: fixed;
+        right: 0;
+  
+        .wallet-drawer {
+          display: block;
+          height: calc(100vh - $headerHeightLg);
+        }
+      }
+    }
+  }
+  
