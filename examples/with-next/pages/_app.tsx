@@ -14,6 +14,7 @@ import {
 import { configureChains, createClient, WagmiConfig } from 'wagmi';
 import { mainnet, polygon, optimism, arbitrum, goerli } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
+import theme from "../lib/walletTheme";
 
 const { chains, provider, webSocketProvider } = configureChains(
   [
@@ -60,7 +61,7 @@ const wagmiClient = createClient({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider appInfo={demoAppInfo} chains={chains}>
+      <RainbowKitProvider appInfo={demoAppInfo} chains={chains} theme={theme}>
         <Component {...pageProps} />
       </RainbowKitProvider>
     </WagmiConfig>
